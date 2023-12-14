@@ -1,0 +1,58 @@
+#type: args
+
+global:
+  random_seed: 0
+  need_encoding: True
+  need_preprocess: False
+  use_transfer_learning: True
+
+dataset:
+  need_embedding_source: False
+  need_embedding_target: False
+  source_dataset_name: "BGL"
+  target_dataset_name: "Thunderbird"
+  dir: "dataset"
+  emb_dim: 1024 #  log vector size
+  window_size: 20 # size of sliding window
+  step_size: 4 # step size of sliding window
+  s_start: 0
+  s_end: 1020000
+  t_start: 1000000
+  t_end: 2000200
+  source_max: 100000 # Maximum number of source datasets
+  target_max: 100000 # Maximum number of target datasets
+
+encoder:
+  epoch: 60
+  batch_size: 512
+  max_seq_len: 20
+  d_input: 1024 # input dimensions of encoder
+  d_output: 512
+  dropout: 0.1
+  n_layers: 6
+  head: 8
+  num: 350 # The number of target system samples used to train the encoder
+  min_num: 100
+  ratio: 0.5 # Divide the proportion of samples in source dataset used to train the encoder
+
+anomaly_detection:
+  lr: 1e-3
+  weight_decay: 5e-6
+  d_input: 512 # input dimensions of LogAction
+  d_hidden: 64
+  num_layers: 2
+  epoch: 60
+  batch_size: 512
+  s_ratio: 0.7
+  t_ratio: 0.7
+  threshold: 0.5
+  model_path: "./save/model/bgl_to_thunderbird_s_detection.pkl"
+  ENERGY_BETA: 0.1
+  ENERGY_ALIGN_TYPE: 'max'
+  ENERGY_ALIGN_WEIGHT: 0.01
+  FIRST_SAMPLE_RATIO: 0.1
+  active_learning:
+    s_epoch: [10,20]
+    active_ratio: 0.01
+    random: False
+
