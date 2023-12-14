@@ -25,13 +25,13 @@ For datasets BGL, Thunderbird, and Zookeeper, their corresponding names in the .
 ```shell
 python3 -u main.py --config bgl_to_thu.yaml
 ```
-If you want to run \(LogAction_{wt}\), please set the parameters:
+If you want to run $LogAction_{wt}$, please set the parameters:
 ```yaml
 global:
   need_encoding: True
   use_transfer_learning: False
 ```
-If you want to run \(LogAction_{wa}\), please set the parameters:
+If you want to run $LogAction_{wa}$, please set the parameters:
 ```yaml
 
 anomaly_detection:
