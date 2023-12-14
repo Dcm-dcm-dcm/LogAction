@@ -38,7 +38,7 @@ def pre_process(config):
 
 def main():
     parser = argparse.ArgumentParser(description="TALog")
-    parser.add_argument("--config", type=str, default="thu_to_zoo.yaml")
+    parser.add_argument("--config", type=str, default="bgl_to_thu.yaml")
     args = parser.parse_args()
     path = "config/" + args.config
     with open(path, "r") as f:
