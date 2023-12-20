@@ -2,7 +2,7 @@
 
 global:
   random_seed: 0
-  need_encoding: True
+  need_encoding: False
   need_preprocess: False
   use_transfer_learning: True
 

@@ -37,7 +37,7 @@ def pre_process(config):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="TALog")
+    parser = argparse.ArgumentParser(description="LogAction")
     parser.add_argument("--config", type=str, default="bgl_to_thu.yaml")
     args = parser.parse_args()
     path = "config/" + args.config
